@@ -82,7 +82,7 @@
       menuContainer.appendChild(thisProduct.element);
     }
 
-    getElements(){
+    getElements() {
       const thisProduct = this;
     
       thisProduct.accordionTrigger = thisProduct.element.querySelector(select.menuProduct.clickable);
@@ -117,7 +117,6 @@
         for (let activeProduct of allActiveProducts) {
 
           /* START: if the active product isn't the element of thisProduct */
-          
           if (activeProduct != thisProduct.element) {
 
             /* remove class active for the active product */
@@ -209,6 +208,7 @@
       }
       /* multiply price by amount */
       price *= thisProduct.amountWidget.value;
+
       /* put variable price into the thisProduct.priveElem */
       thisProduct.priceElem.innerHTML = price;
     }
@@ -249,7 +249,6 @@
       const newValue = parseInt(value);
 
       /*TODO: Add validation */
-      
       if (newValue != thisWidget.value && newValue >= settings.amountWidget.defaultMin && newValue <= settings.amountWidget.defaultMax) {
         thisWidget.value = newValue;
         thisWidget.announce();
@@ -263,10 +262,12 @@
       thisWidget.input.addEventListener('change', function() {
         thisWidget.setValue(thisWidget.input.value);
       });
+
       thisWidget.linkDecrease.addEventListener('click', function(event) {
         event.preventDefault();
         thisWidget.setValue(thisWidget.value - 1);
       });
+
       thisWidget.linkIncrease.addEventListener('click', function(event) {
         event.preventDefault();
         thisWidget.setValue(thisWidget.value + 1);
