@@ -15,8 +15,8 @@ export class Booking {
     const generatedHTML = templates.bookingWidget();
     thisBooking.dom = {};
     thisBooking.dom.wrapper = bookingWidgetContainer;
-    const generetedDom = utils.createDOMFromHTML(generatedHTML);
-    thisBooking.dom.wrapper.appendChild(generetedDom);
+    const generatedDom = utils.createDOMFromHTML(generatedHTML);
+    thisBooking.dom.wrapper.appendChild(generatedDom);
     thisBooking.dom.peopleAmount = document.querySelector(select.booking.peopleAmount);
     thisBooking.dom.hoursAmount = document.querySelector(select.booking.hoursAmount);
   }
