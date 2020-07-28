@@ -31,6 +31,6 @@ export class Booking {
     thisBooking.peopleAmount = new AmountWidget(thisBooking.dom.peopleAmount);
     thisBooking.hoursAmount = new AmountWidget(thisBooking.dom.hoursAmount);
     thisBooking.datePicker = new DatePicker(thisBooking.dom.datePicker);
-    thisBooking.hourPicker = new HourPicker(thisBooking.dom.hoursAmount); 
+    thisBooking.hourPicker = new HourPicker(thisBooking.dom.hourPicker);
   }
 }
