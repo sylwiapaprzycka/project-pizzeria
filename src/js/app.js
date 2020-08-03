@@ -88,6 +88,12 @@ const app = {
     thisApp.booking = new Booking(thisApp.bookingWidgetContainer);
   },
 
+  initMainPage: function() {
+    const thisApp = this;
+    thisApp.mainPageContainer = document.querySelector(select.containerOf.mainPage);
+    thisApp.mainPage = new mainPage(thisApp.mainPageContainer);
+  },
+
   init: function() {
     const thisApp = this;
     // console.log('*** App starting ***');
@@ -100,6 +106,7 @@ const app = {
     // thisApp.initMenu(); /before json/
     thisApp.initCart();
     thisApp.initBooking();
+    thisApp.initMainPage();
   },
 };
 
