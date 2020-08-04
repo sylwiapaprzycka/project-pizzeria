@@ -6,7 +6,7 @@ export class MainPage {
     const thisMainPage = this;
 
     thisMainPage.render(mainPageContainer);
-    // thisMainPage.clickBoxes();
+    thisMainPage.clickBoxes();
   }
 
   render(mainPageContainer) {
