@@ -33,7 +33,19 @@ export class MainPage {
           page.classList.remove(classNames.pages.active);
         }
       }
-      console.log(page.id);
+    });
+
+    const bookingLink = document.getElementById('booking-link');
+    const bookingLinkId = bookingLink.getAttribute('href').replace('#', '');
+
+    bookingLink.addEventListener('click', () => {
+      for (let page of pages) {
+        if (page.id === bookingLinkId) {
+          page.classList.add(classNames.pages.active);
+        } else {
+          page.classList.remove(classNames.pages.active);
+        }
+      }
     });
   }
 }
