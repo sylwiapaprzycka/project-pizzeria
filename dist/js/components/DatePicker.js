@@ -39,8 +39,8 @@ export class DatePicker extends BaseWidget {
     });
   }
 
-  parseValue() {
-    return this.value;
+  parseValue(value) {
+    return value;
   }
 
   isValid() {

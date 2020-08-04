@@ -12,7 +12,7 @@ export class Booking {
     thisBooking.initWidgets();
     thisBooking.getData();
     thisBooking.selectedTable();
-    thisBooking.sendReservation();
+    thisBooking.initSendReservation(); 
   }
 
   render(bookingWidgetContainer) {
@@ -57,7 +57,7 @@ export class Booking {
       eventsRepeat: settings.db.repeatParam + '&' + utils.queryParams(endDate),
     };
 
-    console.log('getData params', params);
+    // console.log('getData params', params);
 
     const urls = {
       booking: settings.db.url + '/' + settings.db.booking + '?' + params.booking,
@@ -65,7 +65,7 @@ export class Booking {
       eventsRepeat: settings.db.url + '/' + settings.db.event + '?' + params.eventsRepeat,
     };
     
-    console.log('getData urls', urls);
+    // console.log('getData urls', urls);
 
     Promise.all([
       fetch(urls.booking),
@@ -79,8 +79,9 @@ export class Booking {
           eventsRepeatResponse.json(),
         ]);
       })
-      .then(function([bookings, eventsCurrent, eventsRepeat]){
+      .then(([bookings, eventsCurrent, eventsRepeat]) => {
         thisBooking.parseData(bookings, eventsCurrent, eventsRepeat);
+        this.updateDOM();
       });
   }
 
@@ -106,13 +107,13 @@ export class Booking {
         }
       }
     }
-    console.log('thisBooking.booked', thisBooking.booked);
+    // console.log('thisBooking.booked', thisBooking.booked);
   }
 
   makeBooked(date, hour, duration, table) {
     const thisBooking = this;
 
-    if (typeof thisBooking.booked[date] == 'undefined') {
+    if (typeof thisBooking.booked[date] === 'undefined') {
       thisBooking.booked[date] = {};
     }
 
@@ -120,7 +121,7 @@ export class Booking {
 
     for (let hourBlock = startHour; hourBlock < startHour + duration; hourBlock += 0.5) {
 
-      if (typeof thisBooking.booked[date][hourBlock] == 'undefined') {
+      if (typeof thisBooking.booked[date][hourBlock] === 'undefined') {
         thisBooking.booked[date][hourBlock] = [];
       }
       thisBooking.booked[date][hourBlock].push(table);
@@ -137,8 +138,8 @@ export class Booking {
     let allAvailable = false;
 
     if (
-      typeof thisBooking.booked[thisBooking.date] == 'undefined' ||
-      typeof thisBooking.booked[thisBooking.date][thisBooking.hour] == 'undefined'
+      typeof thisBooking.booked[thisBooking.date] === 'undefined' ||
+      typeof thisBooking.booked[thisBooking.date][thisBooking.hour] === 'undefined'
     ) {
       allAvailable = true;
     }
@@ -164,12 +165,16 @@ export class Booking {
     const thisBooking = this;
 
     for (let table of thisBooking.dom.tables) {
-      table.addEventListener('click', function() {
+      table.addEventListener('click', () => {
         table.classList.add(classNames.booking.tableBooked);
-        let selectedTableId = parseInt(table.getAttribute(settings.booking.tableIdAttribute));
-        thisBooking.tableSelected = selectedTableId;
+        thisBooking.tableSelected = parseInt(table.getAttribute(settings.booking.tableIdAttribute));
       });
     }
+  }
+
+  initSendReservation() {
+    document.getElementById('book-table').addEventListener('click', () =>
+      this.sendReservation());
   }
 
   sendReservation() {
@@ -200,7 +205,7 @@ export class Booking {
       })
       .then(function(parsedResponse) {
         console.log('parsedResponse', parsedResponse);
-        thisBooking.getData();
+        // thisBooking.getData();
       });
   }
 }

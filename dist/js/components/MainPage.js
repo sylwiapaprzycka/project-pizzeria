@@ -27,7 +27,7 @@ export class MainPage {
 
     orderLink.addEventListener('click', function() {
       for (let page of pages) {
-        if (page.id == orderLinkId) {
+        if (page.id === orderLinkId) {
           page.classList.add(classNames.pages.active);
         } else {
           page.classList.remove(classNames.page.active);
