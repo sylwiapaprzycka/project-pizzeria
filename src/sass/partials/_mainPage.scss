@@ -80,3 +80,27 @@
     font-weight: 200;
   }
 }
+
+.slide {
+  display: flex;
+  margin: 10px;
+
+  img {
+    height: 200px;
+    width: 200px;
+    object-fit: cover;
+  }
+
+  .slide-content {
+    margin: 0 15px;
+    padding: 0;
+
+    h1 {
+      margin: 7px;
+    }
+
+    p:last-child {
+      font-style: italic;
+    }
+  }
+}

@@ -7,6 +7,7 @@ export class MainPage {
 
     thisMainPage.render(mainPageContainer);
     thisMainPage.clickBoxes();
+    thisMainPage.initPlugin();
   }
 
   render(mainPageContainer) {
@@ -46,6 +47,22 @@ export class MainPage {
           page.classList.remove(classNames.pages.active);
         }
       }
+    });
+  }
+
+  initPlugin() {
+    $(document).ready(function(){
+      $('.owl-carousel').owlCarousel();
+    });
+  
+    var owl = $('.owl-carousel');
+    owl.owlCarousel({
+      items:1,
+      loop:true,
+      margin:10,
+      autoplay:true,
+      autoplayTimeout:3000,
+      autoplayHoverPause:true
     });
   }
 }

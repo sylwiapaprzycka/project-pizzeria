@@ -920,4 +920,29 @@ input.error, select.error {
   font-size: 16px;
   font-weight: 200;
 }
+
+.slide {
+  display: -ms-flexbox;
+  display: flex;
+  margin: 10px;
+}
+
+.slide img {
+  height: 200px;
+  width: 200px;
+  object-fit: cover;
+}
+
+.slide .slide-content {
+  margin: 0 15px;
+  padding: 0;
+}
+
+.slide .slide-content h1 {
+  margin: 7px;
+}
+
+.slide .slide-content p:last-child {
+  font-style: italic;
+}
 /*# sourceMappingURL=style.css.map */
