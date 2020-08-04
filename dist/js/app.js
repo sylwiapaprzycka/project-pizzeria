@@ -1,6 +1,7 @@
 import { Product } from './components/Product.js';
 import { Cart } from './components/Cart.js';
 import { Booking } from './components/Booking.js';
+import { MainPage } from './components/MainPage.js';
 import { select, settings, classNames } from './settings.js';
 
 const app = {
@@ -90,8 +91,8 @@ const app = {
 
   initMainPage: function() {
     const thisApp = this;
-    thisApp.mainPageContainer = document.querySelector(select.containerOf.mainPage);
-    thisApp.mainPage = new mainPage(thisApp.mainPageContainer);
+    thisApp.mainPageContainer = document.querySelector(select.containerOf.mainPageWidget);
+    thisApp.mainPage = new MainPage(thisApp.mainPageContainer);
   },
 
   init: function() {
