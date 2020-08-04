@@ -23,16 +23,17 @@ export class MainPage {
     const orderLink = document.getElementById('order-link');
     const orderLinkId = orderLink.getAttribute('href').replace('#', '');
 
-    const pages = document.querySelector(select.containerOf.pages).children;
+    const pages = Array.from(document.querySelector(select.containerOf.pages).children);
 
-    orderLink.addEventListener('click', function() {
+    orderLink.addEventListener('click', () => {
       for (let page of pages) {
         if (page.id === orderLinkId) {
           page.classList.add(classNames.pages.active);
         } else {
-          page.classList.remove(classNames.page.active);
+          page.classList.remove(classNames.pages.active);
         }
       }
+      console.log(page.id);
     });
   }
 }
