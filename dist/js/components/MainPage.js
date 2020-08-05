@@ -1,3 +1,5 @@
+/* global $ */
+
 import { templates, select, classNames } from '../settings.js';
 import { utils } from '../utils.js';
 

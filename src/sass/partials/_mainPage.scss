@@ -104,3 +104,85 @@
     }
   }
 }
+
+// GALLERY
+
+.img-1 { background-image: url(/images/assets/pizza-4.jpg); }
+
+.img-2 { background-image: url(/images/assets/pizza-5.jpg); }
+
+.img-3 { background-image: url(/images/assets/pizza-6.jpg); }
+
+.img-4 { background-image: url(/images/assets/pizza-7.jpg); }
+
+.img-5 { background-image: url(/images/assets/pizza-8.jpg); }
+
+.img-6 { background-image: url(/images/assets/pizza-9.jpg); }
+
+.gallery {
+  display: flex;
+  margin: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+
+  .gallery-image {  
+    width: 200px;
+    height: 200px;
+    margin: 4px;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    display: block;
+    justify-content: center;
+    align-items: center;
+    transition-duration: 1s;
+  }
+
+  .overlay-icon {
+    width: 200px;
+    height: 200px;
+    text-align: center;
+    position: absolute;
+    padding-top: 80px;
+    z-index: -1;
+    font-size: 30px;
+    background-color: rgba(0,0,0,0.5);
+    display: block;
+    transition-duration: 1s;
+  }
+
+  .overlay-icon a {
+    color: $color-light;
+    text-decoration: none;
+  }
+
+  .gallery-image:hover {
+    transition-duration: 1s;
+    z-index: 1;
+    background-position: inherit;
+  }
+
+  .gallery-image:hover .middle  {
+    z-index: 1;
+    transition-duration: 1s;
+  }
+
+  .fa-heart:hover {
+    color: $color-main;
+    cursor: pointer;
+    transition-duration: 0.3s;
+  }
+  
+  .fa-share-alt:hover {
+    color: $color-main;
+    cursor: pointer;
+    transition-duration: 0.3s;
+  }  
+}
+
+footer a {
+  color: $color-main;
+  font-size: 16px;
+  margin-left: 20px;
+}
