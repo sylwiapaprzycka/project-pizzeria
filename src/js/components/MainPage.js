@@ -53,12 +53,12 @@ export class MainPage {
   }
 
   initPlugin() {
-    $(document).ready(function(){
+    $(document).ready(function() {
       $('.owl-carousel').owlCarousel();
     });
   
     var owl = $('.owl-carousel');
-    owl.owlCarousel({
+    owl.owlCarousel( {
       items:1,
       loop:true,
       margin:10,
