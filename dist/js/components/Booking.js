@@ -214,17 +214,18 @@ export class Booking {
 
     const rangeSlider = document.querySelector('.rangeSlider');
     let percentage = 0;
+    let color;
     const colorGrad = [];
     for (let i = 12; i < 24; i += 0.5) {
       percentage += 100 / 24;
       if ((typeof thisBooking.booked[thisBooking.datePicker.value][i] === 'undefined') || thisBooking.booked[thisBooking.datePicker.value][i].length === 1) {
-        let color = `green ${percentage}%`;
+        color = `green ${percentage}%`;
         colorGrad.push(color);
       } else if (thisBooking.booked[thisBooking.datePicker.value][i].length === 2) {
-        let color = `orange ${percentage}%`;
+        color = `orange ${percentage}%`;
         colorGrad.push(color);
       } else {
-        let color = `red ${percentage}%`;
+        color = `red ${percentage}%`;
         colorGrad.push(color);
       }
     }
